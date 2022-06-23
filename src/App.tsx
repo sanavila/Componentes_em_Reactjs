@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BotaoMais } from './components/BotaoMais';
+import { BotaoMenos } from './components/BotaoMenos';
 
 function App() {
+  const [n, setN] = useState(0);
+
+  const handleMore = (num: number) => {
+    setN(n + num)
+  }
+  const handleMinus = (num: number) => {
+      setN(n - num)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Contador</h1>
+      <BotaoMais clickFn={handleMore} />
+      <p>{n}</p>
+      <BotaoMenos clickFnm={handleMinus}/>
     </div>
   );
 }

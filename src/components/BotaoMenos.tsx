@@ -1,9 +1,8 @@
-type Props = {
-    clickFnm: (num: number) => void;
-}
-export const BotaoMenos = ({clickFnm}: Props) => {
+export const BotaoMenos = () => {
     const clickMinus = () => {
-        clickFnm(+1)
+        const detail = { num: 2 };
+        const event = new CustomEvent('minus', { detail });
+        document.dispatchEvent(event);
     }
     return (
         <div>

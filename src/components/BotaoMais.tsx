@@ -1,13 +1,12 @@
-type Props = {
-    clickFn: (num: number) => void;
-}
-export const BotaoMais = ({clickFn}: Props) => {
-    const clickMore = () => {
-        clickFn(+1)
+export const BotaoMais = () => {
+    const clickPlus = () => {
+        const detail = { num: 3 };
+        const event = new CustomEvent('plus', { detail });
+        document.dispatchEvent(event);
     }
     return (
         <div>
-            <button onClick={clickMore}>+</button>
+            <button onClick={clickPlus}>+</button>
         </div>
     );
 }
